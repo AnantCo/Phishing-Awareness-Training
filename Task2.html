@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Awareness Training</title>
+    <style>
+        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 20px; background: linear-gradient(to right, #1e3c72, #2a5298); color: white; text-align: center; }
+        .container { max-width: 800px; margin: auto; background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 8px; box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.3); }
+        h1, h2 { font-family: 'Comic Sans MS', cursive, sans-serif; }
+        .quiz { display: none; }
+        .btn { padding: 12px 18px; background: #ffcc00; color: black; border: none; cursor: pointer; font-weight: bold; border-radius: 5px; }
+        .btn:hover { background: #ff9900; }
+        .progress-bar { width: 100%; background: white; border-radius: 10px; margin-top: 15px; }
+        .progress { height: 20px; background: limegreen; width: 0%; border-radius: 10px; transition: width 0.5s; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚨 Phishing Awareness Training 🚨</h1>
+        <p>Welcome to the phishing awareness training! Learn to protect yourself from cyber attacks. 🚀</p>
+        
+        <h2>What is Phishing? 🕵️‍♂️</h2>
+        <p>Phishing is a cyber-attack where hackers trick people into sharing sensitive information by pretending to be a trusted source.</p>
+        
+        <h2>Quiz: Test Your Knowledge! 🎯</h2>
+        <button class="btn" onclick="startQuiz()">Start Quiz</button>
+        
+        <div class="quiz" id="quizSection">
+            <p id="question"></p>
+            <button class="btn" onclick="checkAnswer(true)">True</button>
+            <button class="btn" onclick="checkAnswer(false)">False</button>
+            <p id="result"></p>
+            <button class="btn" id="nextBtn" onclick="nextQuestion()" style="display: none;">Next</button>
+            <div class="progress-bar">
+                <div class="progress" id="progressBar"></div>
+            </div>
+            <p id="score" style="display: none;"></p>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            { q: "Phishing emails often contain spelling mistakes.", correct: true },
+            { q: "A bank will always ask for your password via email.", correct: false },
+            { q: "Clicking unknown links can lead to phishing attacks.", correct: true },
+            { q: "Phishing only happens through emails.", correct: false },
+            { q: "An urgent message asking for payment should be verified before action.", correct: true },
+            { q: "All phishing emails look the same.", correct: false },
+            { q: "Vishing is a form of phishing via voice calls.", correct: true },
+            { q: "Smishing is a phishing attempt via SMS.", correct: true },
+            { q: "Multi-Factor Authentication (MFA) can help prevent phishing.", correct: true },
+            { q: "A legitimate company will never use HTTPS on their website.", correct: false }
+        ];
+
+        let currentQuestion = 0;
+        let correctAnswers = 0;
+        let totalQuestions = questions.length;
+
+        function startQuiz() {
+            document.getElementById('quizSection').style.display = 'block';
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            document.getElementById('question').innerText = questions[currentQuestion].q;
+            document.getElementById('result').innerText = "";
+            document.getElementById('nextBtn').style.display = 'none';
+        }
+
+        function checkAnswer(answer) {
+            if (answer === questions[currentQuestion].correct) {
+                document.getElementById('result').innerText = "✅ Correct!";
+                correctAnswers++;
+            } else {
+                document.getElementById('result').innerText = "❌ Incorrect.";
+            }
+            document.getElementById('nextBtn').style.display = 'inline-block';
+        }
+
+        function nextQuestion() {
+            currentQuestion++;
+            updateProgressBar();
+            if (currentQuestion < totalQuestions) {
+                loadQuestion();
+            } else {
+                showResults();
+            }
+        }
+
+        function updateProgressBar() {
+            let percentage = ((currentQuestion + 1) / totalQuestions) * 100;
+            document.getElementById('progressBar').style.width = percentage + "%";
+        }
+
+        function showResults() {
+            let correctPercentage = (correctAnswers / totalQuestions) * 100;
+            let incorrectPercentage = 100 - correctPercentage;
+            document.getElementById('quizSection').innerHTML = `<h2>Quiz Completed! 🎉</h2>
+                <p>You got ${correctAnswers} out of ${totalQuestions} questions correct.</p>
+                <p>✅ Correct Answers: ${correctPercentage.toFixed(2)}%<br>❌ Incorrect Answers: ${incorrectPercentage.toFixed(2)}%</p>
+                <div class='progress-bar'><div class='progress' style='width: ${correctPercentage}%; background: limegreen;'></div></div>`;
+        }
+    </script>
+</body>
+</html>
