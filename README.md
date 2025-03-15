@@ -1,22 +1,21 @@
-🚨 Phishing Awareness Training 🚨
-🔍 About the Project
-Phishing attacks are a major cybersecurity threat! This interactive Phishing Awareness Training Module helps users identify and avoid phishing scams through an engaging quiz-based learning experience.
+# 🚨 Phishing Awareness Training 🚨  
 
-🎯 Features
-✅ Interactive UI – Visually appealing design with engaging fonts and animations.
-✅ Educational Content – Explains phishing tactics and prevention methods.
-✅ 10-Question Quiz – Tests users' knowledge with real-world phishing scenarios.
-✅ Live Progress Bar – Tracks quiz completion percentage dynamically.
-✅ Final Score Display – Shows correct and incorrect answer percentages.
+This is an interactive **Phishing Awareness Training Module** built with **HTML, CSS, and JavaScript**. It helps users learn about phishing threats and test their knowledge with a quiz.  
 
-📌 How It Works
-Click Start Quiz to begin the training.
-Answer True/False questions on phishing awareness.
-Track your progress using the progress bar.
-View your final score with correct & incorrect percentages.
-Learn from mistakes and become phishing-proof!
-🚀 Live Demo
-👉 Host this module on GitHub Pages for an online demo!
-👉 Stay cyber-safe and educate others about phishing scams.
+## 📌 Features:
+- 🎨 **Attractive UI** with a gradient background and engaging fonts.  
+- 🧠 **Interactive Quiz** with 10 questions to test phishing knowledge.  
+- 📊 **Progress Bar** showing quiz completion percentage.  
+- ✅❌ **Final Score Display** with correct & incorrect percentages.  
 
-🔐 Stay safe from phishing attacks! 🛡
+## 📥 How to Use:
+1. **Download** or clone this repository.  
+2. Open the `index.html` file in a web browser.  
+3. Start the training and test your phishing awareness!  
+
+## 🚀 Live Demo
+You can host this on **GitHub Pages** for an online demo.  
+
+---
+
+🛡 Stay safe from phishing attacks!
